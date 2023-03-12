@@ -1,5 +1,3 @@
-
-
 function generateMatrix(MatrixLength, gr, grEater, predator, human, killer) {
     let matrix = []
     for (let i = 0; i < MatrixLength; i++) {
