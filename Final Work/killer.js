@@ -26,10 +26,15 @@ module.exports = class Killer extends LivingCreature {
         this.getNewCoordinates()
         return super.chooseCell(char)
     }
+    random(ch){
+        let found = this.chooseCell(ch);
+        let result = Math.floor(Math.random()*found.length)
+        return found[result];
+        }
 
     mul() {
-        let emptyCelss = this.chooseCell(0)
-        let newCell = random(emptyCelss)
+        // let emptyCelss = this.chooseCell(0)
+        let newCell = this.random(0)
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -42,8 +47,8 @@ module.exports = class Killer extends LivingCreature {
 
     move() {
         this.energy--
-        let emptyCelss = this.chooseCell(0)
-        let newCell = random(emptyCelss)
+        // let emptyCelss = this.chooseCell(0)
+        let newCell = this.random(0)
         if (newCell && this.energy >= 0) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -57,8 +62,8 @@ module.exports = class Killer extends LivingCreature {
     }
 
     eat() {
-        let emptyCelss = this.chooseCell(4)
-        let newCell = random(emptyCelss)
+        // let emptyCelss = this.chooseCell(4)
+        let newCell = this.random(4)
         if (newCell) {
             this.energy++
             let newX = newCell[0]

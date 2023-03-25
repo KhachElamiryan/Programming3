@@ -16,12 +16,15 @@ module.exports = class Grass extends LivingCreature {
         ];
 
     }
-
+    random(ch){
+        let found = this.chooseCell(ch);
+        let result = Math.floor(Math.random()*found.length)
+        return found[result];
+        }
 
     mul() {
         this.multiply++
-        let emptyCelss = this.chooseCell(0)
-        let newCell = random(emptyCelss)
+        let newCell = this.random(0)
         if (this.multiply >= 3 && newCell) {
             let newX = newCell[0]
             let newY = newCell[1]

@@ -7,10 +7,19 @@ module.exports = class Human extends LivingCreature {
         this.directions = [];
 
     }
+    random(ch, ch1, ch2) {
+        let found = this.chooseCell(ch);
+        let found1 = this.chooseCell(ch1);
+        let found2 = this.chooseCell(ch2)
+        let finalfound = found.concat(found1,found2)
+        let result = Math.floor(Math.random() * finalfound.length)
+
+        return finalfound[result];
+    }
 
     mul() {
-        let emptyCelss = this.chooseCell(0)
-        let newCell = random(emptyCelss)
+        // let emptyCelss = this.chooseCell(0)
+        let newCell = this.random(0)
         if (newCell) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -41,8 +50,8 @@ module.exports = class Human extends LivingCreature {
 
     move() {
         this.energy--
-        let emptyCelss = this.chooseCell(0)
-        let newCell = random(emptyCelss)
+        // let emptyCelss = this.chooseCell(0)
+        let newCell = this.random(0)
         if (newCell && this.energy >= 0) {
             let newX = newCell[0]
             let newY = newCell[1]
@@ -56,12 +65,12 @@ module.exports = class Human extends LivingCreature {
     }
 
     eat() {
-        let emptyCelss = this.chooseCell(2)
-        let newCell = random(emptyCelss)
-        let emptyCelss1 = this.chooseCell(3)
-        let newCell1 = random(emptyCelss1)
-        let emptyCelss2 = this.chooseCell(1)
-        let newCell2 = random(emptyCelss2)
+        // let emptyCelss = this.chooseCell(2)
+        let newCell = this.random(2)
+        // let emptyCelss1 = this.chooseCell(3)
+        let newCell1 = this.random(3)
+        // let emptyCelss2 = this.chooseCell(1)
+        let newCell2 = this.random(1)
         if (newCell) {
             this.energy++
             let newX = newCell[0]
