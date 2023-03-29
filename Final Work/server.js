@@ -60,7 +60,7 @@ function generateMatrix(MatrixLength, gr, grEater, predator, human, killer) {
 
 
     }
-
+    io.emit("send matrix", matrix)
     return matrix
 
 }
@@ -78,7 +78,7 @@ const Predator = require("./predator")
 const Human = require("./human")
 const Killer = require("./killer")
 
-function createObj(){
+function createObj() {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 1) {
@@ -107,23 +107,19 @@ function createObj(){
 
 createObj()
 
-function gameMove(){
+function gameMove() {
     for (let i = 0; i < grassArr.length; i++) {
         grassArr[i].mul()
-    }
-
-    for (let i = 0; i < grassEaterArr.length; i++) {
+    } for (let i = 0; i < grassEaterArr.length; i++) {
         grassEaterArr[i].eat()
     } for (let i = 0; i < PredatorArr.length; i++) {
         PredatorArr[i].eat()
-    }
-    for (let i = 0; i < HumanArr.length; i++) {
+    } for (let i = 0; i < HumanArr.length; i++) {
         HumanArr[i].eat()
-    }
-    for (let i = 0; i < KillerArr.length; i++) {
+    } for (let i = 0; i < KillerArr.length; i++) {
         KillerArr[i].eat()
     }
-
+    io.emit("send matrix", matrix)
 }
 
-setInterval(gameMove, 500)
+setInterval(gameMove, 200)

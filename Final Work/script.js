@@ -1,3 +1,5 @@
+var socket = io()
+
 // function generateMatrix(MatrixLength, gr, grEater, predator, human, killer) {
 //     let matrix = []
 //     for (let i = 0; i < MatrixLength; i++) {
@@ -69,7 +71,7 @@ var side = 15;
 
 function setup() {
     frameRate(5);
-    createCanvas(matrix[0].length * side, matrix.length * side);
+    createCanvas(50 * side, 50 * side);
     background('#acacac');
 
     // for (var y = 0; y < matrix.length; y++) {
@@ -98,7 +100,7 @@ function setup() {
 
 }
 
-function draw() {
+function changecolor(matrix) {
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
@@ -140,3 +142,4 @@ function draw() {
 }
 
 
+socket.on("send matrix",changecolor)
