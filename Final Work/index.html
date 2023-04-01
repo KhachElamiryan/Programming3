@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <script src="/socket.io/socket.io.js"></script>
+    <header class="header">
+        <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <!-- <script src="LivingCreature.js"></script>
     <script src="gr.js"></script>
@@ -18,6 +20,44 @@
     <script src="human.js"></script>
     <script src="killer.js"></script> -->
     <script src="script.js"></script>
+
+    <table class="table" style="color: aliceblue;">
+        <tr>
+            <th>Grass</th>
+            <th>GrassEater</th>
+            <th>Predator</th>
+            <th>Human</th>
+            <th>Killer</th>
+            <th>Terminator</th>
+        </tr>
+  <tr>
+      <td id="grass"></td>
+      <td id="grasseater"></td>
+      <td id="predator"></td>
+      <td id="human"></td>
+      <td id="killer"></td>
+      <td id="Terminator"></td>
+  </tr>
+    </table>
+    <div class="button-container">
+        <button  class="button button-1">Խոտ</button>
+        <button  class="button button-2">Խոտակեր</button>
+        <button  class="button button-3">Գիշատիչ</button>
+        <button  class="button button-4">Մարդ</button>
+        <button  class="button button-5">Մարդասպան</button>
+        <button  class="button button-5">Տեռմինատոր</button>
+        <!-- ----------------------------------------------- -->
+      </div>
+
+      <div class="btn-wheather">
+        <button onclick="Summer()" class="buttonk button-7">Ամառ</button>
+        <button onclick="Winter()" class="buttonk button-9">Ձմեռ</button>
+    </div> 
+
+    </header>
+
+    
 </body>
+
 
 </html>

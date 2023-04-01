@@ -61,7 +61,7 @@ var socket = io()
 
 
 // let matrix = generateMatrix(60, 100, 100, 90, 5, 50)
-var side = 15;
+var side = 10;
 // let grassArr = []
 // let grassEaterArr = []
 // let PredatorArr = []
@@ -118,6 +118,8 @@ function changecolor(matrix) {
             }
             else if (matrix[y][x] == 5) {
                 fill("black");
+            }else if (matrix[y][x] == 6) {
+                fill("cyan");
             }
 
             rect(x * side, y * side, side, side);
@@ -140,6 +142,17 @@ function changecolor(matrix) {
 //     }
 
 }
+
+socket.on("send datas" ,function(counts){
+    document.getElementById("grass").innerHTML = counts.grass;
+    document.getElementById("grasseater").innerHTML = counts.GrassEater;
+    document.getElementById("predator").innerHTML = counts.predator;
+    document.getElementById("human").innerHTML = counts.human;
+    document.getElementById("killer").innerHTML = counts.killer;
+    document.getElementById("Terminator").innerHTML = counts.terminator;
+
+
+})
 
 
 socket.on("send matrix",changecolor)

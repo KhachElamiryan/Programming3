@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var fs = require('fs')
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
@@ -10,7 +11,7 @@ app.get('/', function (req, res) {
 
 server.listen(3000);
 
-function generateMatrix(MatrixLength, gr, grEater, predator, human, killer) {
+function generateMatrix(MatrixLength, gr, grEater, predator, human, killer, terminator) {
     let matrix = []
     for (let i = 0; i < MatrixLength; i++) {
         matrix.push([])
@@ -57,6 +58,13 @@ function generateMatrix(MatrixLength, gr, grEater, predator, human, killer) {
         if (matrix[y][x] == 0) {
             matrix[y][x] = 5
         }
+    }
+    for (let i = 0; i < terminator; i++) {
+        let x = Math.floor(Math.random() * MatrixLength)
+        let y = Math.floor(Math.random() * MatrixLength)
+        if (matrix[y][x] == 0) {
+            matrix[y][x] = 6
+        }
 
 
     }
@@ -65,18 +73,20 @@ function generateMatrix(MatrixLength, gr, grEater, predator, human, killer) {
 
 }
 
-matrix = generateMatrix(60, 100, 100, 90, 5, 50)
+matrix = generateMatrix(60, 100, 100, 90, 5, 50, 50)
 grassArr = []
 grassEaterArr = []
 PredatorArr = []
 HumanArr = []
 KillerArr = []
+TerminatorArr = []
 
 const Grass = require("./gr")
 const GrassEater = require("./grEater")
 const Predator = require("./predator")
 const Human = require("./human")
 const Killer = require("./killer")
+const Terminator = require("./terminator")
 
 function createObj() {
     for (var y = 0; y < matrix.length; y++) {
@@ -99,6 +109,10 @@ function createObj() {
                 let gr = new Killer(x, y)
                 KillerArr.push(gr)
             }
+            else if (matrix[y][x] == 6) {
+                let gr = new Terminator(x, y)
+                TerminatorArr.push(gr)
+            }
 
         }
     }
@@ -118,8 +132,25 @@ function gameMove() {
         HumanArr[i].eat()
     } for (let i = 0; i < KillerArr.length; i++) {
         KillerArr[i].eat()
+    }for (let i = 0; i < TerminatorArr.length; i++) {
+        TerminatorArr[i].eat()
     }
     io.emit("send matrix", matrix)
 }
 
-setInterval(gameMove, 200)
+function AllDatas(){
+    countd = {
+        grass:grassArr.length,
+        GrassEater:grassEaterArr.length,
+        predator:PredatorArr.length,
+        human:HumanArr.length,
+        killer:KillerArr.length,
+        terminator:TerminatorArr.length
+
+    }
+    fs.writeFile("state.json",JSON.stringify(countd),function(){
+        io.emit("send datas" ,countd)
+    })
+}
+setInterval(AllDatas, 1000)
+setInterval(gameMove, 1000)
