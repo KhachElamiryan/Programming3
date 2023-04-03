@@ -25,7 +25,7 @@ module.exports = class Human extends LivingCreature {
             let newY = newCell[1]
             matrix[newY][newX] = 4
             let newGr = new Human(newX, newY)
-            HumanArr.push(newGr)
+            humanArr.push(newGr)
             this.energy = 10
         }
     }
@@ -65,11 +65,8 @@ module.exports = class Human extends LivingCreature {
     }
 
     eat() {
-        // let emptyCelss = this.chooseCell(2)
         let newCell = this.random(2)
-        // let emptyCelss1 = this.chooseCell(3)
         let newCell1 = this.random(3)
-        // let emptyCelss2 = this.chooseCell(1)
         let newCell2 = this.random(1)
         if (newCell) {
             this.energy++
@@ -100,9 +97,9 @@ module.exports = class Human extends LivingCreature {
             if (this.energy >= 25) {
                 this.mul()
             }
-            for (var i in PredatorArr) {
-                if (newX == PredatorArr[i].x && newY == PredatorArr[i].y) {
-                    PredatorArr.splice(i, 1);
+            for (var i in predatorArr) {
+                if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
+                    predatorArr.splice(i, 1);
                     break;
                 }
             }
@@ -131,9 +128,9 @@ module.exports = class Human extends LivingCreature {
 
     die() {
         matrix[this.y][this.x] = 0
-        for (var i in HumanArr) {
-            if (this.x == HumanArr[i].x && this.y == HumanArr[i].y) {
-                HumanArr.splice(i, 1);
+        for (var i in humanArr) {
+            if (this.x == humanArr[i].x && this.y == humanArr[i].y) {
+                humanArr.splice(i, 1);
                 break;
             }
         }

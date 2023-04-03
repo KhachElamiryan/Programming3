@@ -1,8 +1,9 @@
 *{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
 }
+
 .header {
 	min-height: 100vh;
 	width: 100%;
@@ -11,6 +12,165 @@
 	background-size: cover;
 	position: relative;
 
+}
+
+.nav {
+	display: flex;
+	padding: 2% 6%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.nav-links{
+	flex: 1;
+	text-align: right;
+}
+
+.nav-links ul li {
+	list-style: none;
+    display: inline-block;
+    padding: 8px 13px;
+    position: relative;
+}
+
+.nav-links ul li a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.nav-links ul li::after{
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: #f44336;
+	display: block;
+	margin: auto;
+	transition: 0.7s;
+}
+
+.nav-links ul li:hover::after{
+	width: 100%;
+}
+
+canvas{
+	margin-left: 35%;
+	margin-top: -38%;
+	position: absolute;
+}
+
+.header2 {
+	min-height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7)),url("img/banner2.png");
+	background-position: center;
+	background-size: cover;
+	position: relative;
+
+}
+
+.body1 {
+	background: #3333;
+	font-family: "Poppins" sans-serif;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.cover {
+	width: 900px;
+	height: 400px;
+	margin-top: 50px;
+	display: flex;
+}
+
+.box {
+	margin: 10px;
+	width: 300px;
+	height: 500px;
+	box-shadow: -4px 0 10px #000000;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+img {
+	width: 290px;
+	height: 200px;
+	display: flex;
+}
+
+h1 {
+  color: #dfdcd7;
+}
+
+h2{
+	color: #dfdcd7;
+}
+
+h3 {
+	color: #dfdcd7;
+}
+
+p {
+	color: #E5EBF0;
+}
+
+.content {
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+	color: #fff;
+}
+
+.content h1 {
+	font-size: 70px;
+	margin-top: -320px;
+	color: white;
+}
+
+.content p {
+	margin: 20px auto;
+	font-weight: 100;
+	line-height: 25px;
+}
+
+.buttons {
+	width: 180px;
+	padding: 15px 0;
+	text-align: center;
+	margin: 5px 10px;
+	border-radius: 25px;
+	font-weight: bold;
+	border: 2px solid #f3c070;
+	background: transparent;
+	color: #fff;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+span {
+	background: #f3c070;
+	height: 100%;
+	width: 100%;
+	border-radius: 25px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	transition: 0.5s;
+}
+
+.buttons:hover span {
+	width: 100%;
+}
+
+.buttons:hover {
+	border: none;
 }
 
 .button-container {
@@ -26,10 +186,9 @@
 	background: none;
 	border: none;
 	outline: none;
-  
 	padding: 10px 20px;
-	border-radius: 8px;
-	color: #212121;
+	border-radius: 18px;
+	color: #15d3d3;
 	font-size: 25px;
 	font-weight: 600;
 	margin: 0 25px;
@@ -87,6 +246,17 @@
 	background-color: #9351F6;
   }
 
+  .button-6 {
+	color: black;
+	background-color: #CAD9DE;
+	border: 3px solid #CAD9DE;
+  }
+
+  /* .button-6:hover {
+	color: #FFF;
+	background-color: #CAD9DE;
+  } */
+
 .btn-wheather {
 	width: 100px;
 }
@@ -96,7 +266,6 @@
 	background: none;
 	border: none;
 	outline: none;
-  
 	padding: 10px 20px;
 	border-radius: 8px;
 	color: #212121;
@@ -107,37 +276,56 @@
 	transition: 0.4s;
   }
 
-
-
-  .button-7 {
-	color: #0AF651;
-	border: 3px solid #0AF651;
+.button-7 {
+	color: #FAFAD2;
+	border: 3px solid #FAFAD2;
 	margin-bottom: 25px;
   }
 
   .button-7:hover {
 	color: black;
+	background-color: #FAFAD2;
+  }
+
+  .button-8 {
+	color: #0AF651;
+	border: 3px solid #0AF651;
+	margin-bottom: 25px;
+  }
+
+  .button-8:hover {
+	color: black;
 	background-color: #0AF651;
   }
 
- 
-
   .button-9 {
+	color: #FFBE4D;
+	border: 3px solid #FFBE4D;
+	margin-bottom: 25px;
+  }
+
+  
+  .button-9:hover {
+	color: black;
+	background-color: #FFBE4D;
+  }
+
+  .button-10 {
 	color: #FFFFFF;
 	border: 3px solid #FFFFFF;
 	margin-bottom: 25px;
   }
 
-  .button-9:hover {
+  .button-10:hover {
 	color: black;
 	background-color: #FFFFFF;
   }
 
-  canvas{
-    margin-left: 40%;
-    margin-top: -35%;
-    position: absolute;
- }
-
-
- 
+ .table {
+	width: 50%;
+	margin-top: -400px;
+	margin-left: 480px;
+	color: #F5ECEE;
+	background-color: rgba(4, 9, 30, 0.7);
+	/* background-color: #172A57; */
+} 

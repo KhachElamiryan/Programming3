@@ -27,7 +27,7 @@ module.exports = class Terminator extends LivingCreature {
             let newY = newCell[1]
             matrix[newY][newX] = 6
             let newGr = new Terminator(newX, newY)
-            TerminatorArr.push(newGr)
+            terminatorArr.push(newGr)
             this.energy = 10
         }
     }
@@ -67,15 +67,10 @@ module.exports = class Terminator extends LivingCreature {
     }
 
     eat() {
-        // let emptyCelss = this.chooseCell(2)
         let newCell = this.random(2)
-        // let emptyCelss1 = this.chooseCell(3)
         let newCell1 = this.random(3)
-        // let emptyCelss2 = this.chooseCell(4)
         let newCell2 = this.random(4)
-        // let emptyCelss2 = this.chooseCell(1)
         let newCell3 = this.random(1)
-        // let emptyCelss2 = this.chooseCell(5)
         let newCell4 = this.random(5)
         if (newCell) {
             this.energy++
@@ -106,9 +101,9 @@ module.exports = class Terminator extends LivingCreature {
             if (this.energy >= 25) {
                 this.mul()
             }
-            for (var i in PredatorArr) {
-                if (newX == PredatorArr[i].x && newY == PredatorArr[i].y) {
-                    PredatorArr.splice(i, 1);
+            for (var i in predatorArr) {
+                if (newX == predatorArr[i].x && newY == predatorArr[i].y) {
+                    predatorArr.splice(i, 1);
                     break;
                 }
             }
@@ -124,9 +119,9 @@ module.exports = class Terminator extends LivingCreature {
             if (this.energy >= 25) {
                 this.mul()
             }
-            for (var i in grassArr) {
-                if (newX == HumanArr[i].x && newY == HumanArr[i].y) {
-                    HumanArr.splice(i, 1);
+            for (var i in humanArr) {
+                if (newX == humanArr[i].x && newY == humanArr[i].y) {
+                    humanArr.splice(i, 1);
                     break;
                 }
             }
@@ -158,9 +153,9 @@ module.exports = class Terminator extends LivingCreature {
             if (this.energy >= 25) {
                 this.mul()
             }
-            for (var i in grassArr) {
-                if (newX == KillerArr[i].x && newY == KillerArr[i].y) {
-                    KillerArr.splice(i, 1);
+            for (var i in killerArr) {
+                if (newX == killerArr[i].x && newY == killerArr[i].y) {
+                    killerArr.splice(i, 1);
                     break;
                 }
             }
@@ -171,9 +166,9 @@ module.exports = class Terminator extends LivingCreature {
 
     die() {
         matrix[this.y][this.x] = 0
-        for (var i in TerminatorArr) {
-            if (this.x == TerminatorArr[i].x && this.y == TerminatorArr[i].y) {
-                TerminatorArr.splice(i, 1);
+        for (var i in terminatorArr) {
+            if (this.x == terminatorArr[i].x && this.y == terminatorArr[i].y) {
+                terminatorArr.splice(i, 1);
                 break;
             }
         }

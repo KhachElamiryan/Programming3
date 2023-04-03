@@ -40,7 +40,7 @@ module.exports = class Killer extends LivingCreature {
             let newY = newCell[1]
             matrix[newY][newX] = 5
             let newGr = new Killer(newX, newY)
-            KillerArr.push(newGr)
+            killerArr.push(newGr)
             this.energy = 10
         }
     }
@@ -75,9 +75,9 @@ module.exports = class Killer extends LivingCreature {
             if (this.energy >= 5) {
                 this.mul()
             }
-            for (var i in HumanArr) {
-                if (newX == HumanArr[i].x && newY == HumanArr[i].y) {
-                    HumanArr.splice(i, 1);
+            for (var i in humanArr) {
+                if (newX == humanArr[i].x && newY == humanArr[i].y) {
+                    humanArr.splice(i, 1);
                     break;
                 }
             }
@@ -88,9 +88,9 @@ module.exports = class Killer extends LivingCreature {
     }
     die() {
         matrix[this.y][this.x] = 0
-        for (var i in KillerArr) {
-            if (this.x == KillerArr[i].x && this.y == KillerArr[i].y) {
-                KillerArr.splice(i, 1);
+        for (var i in killerArr) {
+            if (this.x == killerArr[i].x && this.y == killerArr[i].y) {
+                killerArr.splice(i, 1);
                 break;
             }
         }
